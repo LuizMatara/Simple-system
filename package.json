@@ -1,12 +1,8 @@
 {
   "name": "simple-system",
   "version": "1.0.0",
-  "description": "Motor de pesquisa de serviços locais para idosos - Condeixa-a-Nova",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "init-db": "node init-db.js",
-    "setup": "node init-db.js && node server.js"
-  },
-  "dependencies": {}
+    "start": "node server.js"
+  }
 }

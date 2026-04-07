@@ -3,17 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple System — Encontre Serviços Perto de Si</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Simple System — Serviços Perto de Si</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ============================================ -->
-  <!-- CABEÇALHO -->
-  <!-- ============================================ -->
   <header class="cabecalho">
     <div class="cabecalho-conteudo">
       <div class="logo">
@@ -24,64 +19,49 @@
     </div>
   </header>
 
-  <!-- ============================================ -->
-  <!-- CONTEÚDO PRINCIPAL -->
-  <!-- ============================================ -->
   <main class="principal">
 
-    <!-- PASSO 1: Escolher categoria -->
+    <!-- escolher categoria -->
     <section class="secao" id="secao-categorias">
       <h2 class="secao-titulo">
         <span class="passo">1</span>
         Que serviço precisa?
       </h2>
       <p class="secao-descricao">Toque no serviço que procura:</p>
-
-      <div class="grelha-categorias" id="grelha-categorias">
-        <!-- As categorias são preenchidas pelo JavaScript -->
-      </div>
+      <div class="grelha-categorias" id="grelha-categorias"></div>
     </section>
 
-    <!-- PASSO 2: Localização -->
+    <!-- localizacao -->
     <section class="secao escondido" id="secao-localizacao">
       <h2 class="secao-titulo">
         <span class="passo">2</span>
         Onde está?
       </h2>
-      <p class="secao-descricao">Precisamos da sua localização para mostrar os profissionais mais perto de si.</p>
-      
+      <p class="secao-descricao">Precisamos da sua localização para mostrar os profissionais mais perto.</p>
       <button class="botao-localizar" id="botao-localizar">
         <span class="botao-localizar-icone">📍</span>
         Usar a minha localização
       </button>
-
       <div class="estado-localizacao escondido" id="estado-localizacao">
         <div class="a-carregar">
           <div class="spinner"></div>
-          <p>A obter a sua localização...</p>
+          <p>A obter localização...</p>
         </div>
       </div>
     </section>
 
-    <!-- PASSO 3: Resultados -->
+    <!-- resultados -->
     <section class="secao escondido" id="secao-resultados">
       <h2 class="secao-titulo">
         <span class="passo">3</span>
         Profissionais perto de si
       </h2>
-      
       <div class="info-pesquisa" id="info-pesquisa"></div>
-
-      <div class="lista-resultados" id="lista-resultados">
-        <!-- Os resultados são preenchidos pelo JavaScript -->
-      </div>
-
-      <button class="botao-voltar" id="botao-voltar">
-        ← Procurar outro serviço
-      </button>
+      <div class="lista-resultados" id="lista-resultados"></div>
+      <button class="botao-voltar" id="botao-voltar">← Procurar outro serviço</button>
     </section>
 
-    <!-- MENSAGEM DE ERRO -->
+    <!-- erro -->
     <div class="mensagem-erro escondido" id="mensagem-erro">
       <p class="erro-texto" id="erro-texto"></p>
       <button class="botao-tentar" id="botao-tentar">Tentar novamente</button>
@@ -89,12 +69,8 @@
 
   </main>
 
-  <!-- ============================================ -->
-  <!-- RODAPÉ -->
-  <!-- ============================================ -->
   <footer class="rodape">
     <p>Simple System © 2026 — Projeto INTEP Condeixa-a-Nova</p>
-    <p class="rodape-nota">Feito para tornar a vida mais simples 💙</p>
   </footer>
 
   <script src="script.js"></script>

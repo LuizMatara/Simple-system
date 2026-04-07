@@ -1,42 +1,28 @@
-/**
- * ============================================
- * Simple System - Inicialização da Base de Dados
- * ============================================
- * 
- * Cria o ficheiro dados.json com profissionais fictícios
- * localizados em Condeixa-a-Nova.
- * 
- * Usamos JSON como "base de dados" para zero dependências.
- * Para produção com muitos dados, migrar para SQLite.
- * 
- * Executar com: node init-db.js
- */
+// Gera a base de dados com profissionais ficticios em Condeixa-a-Nova
+// Correr com: node init-db.js
 
 const fs = require('fs');
 const path = require('path');
 
-const DB_PATH = path.join(__dirname, 'dados.json');
-console.log('📂 A criar base de dados em:', DB_PATH);
-
-// --- Localizações reais em Condeixa-a-Nova ---
+// locais reais em condeixa
 const locais = [
-  { nome: 'Centro de Condeixa (Praça)',           lat: 40.1138, lng: -8.4981 },
-  { nome: 'Tenesse Original',                      lat: 40.1125, lng: -8.4965 },
-  { nome: 'Escola Básica de Condeixa',             lat: 40.1150, lng: -8.5002 },
-  { nome: 'Café Central (Rua Principal)',          lat: 40.1132, lng: -8.4975 },
-  { nome: 'Junta de Freguesia de Condeixa',       lat: 40.1145, lng: -8.4990 },
-  { nome: 'Zona do Museu (PO.RO.S)',              lat: 40.1118, lng: -8.4950 },
-  { nome: 'Rua João Mendes (zona residencial)',    lat: 40.1160, lng: -8.5010 },
-  { nome: 'Supermercado Pingo Doce Condeixa',     lat: 40.1100, lng: -8.4935 },
-  { nome: 'Estação de Correios',                   lat: 40.1142, lng: -8.4988 },
-  { nome: 'Parque Municipal de Condeixa',         lat: 40.1170, lng: -8.5020 },
-  { nome: 'Zona Industrial de Condeixa',          lat: 40.1080, lng: -8.4910 },
-  { nome: 'Conimbriga (zona arqueológica)',        lat: 40.0980, lng: -8.4920 },
+  { lat: 40.1138, lng: -8.4981 }, // centro / praça
+  { lat: 40.1125, lng: -8.4965 }, // tenesse original
+  { lat: 40.1150, lng: -8.5002 }, // escola basica
+  { lat: 40.1132, lng: -8.4975 }, // cafe central
+  { lat: 40.1145, lng: -8.4990 }, // junta de freguesia
+  { lat: 40.1118, lng: -8.4950 }, // zona do museu
+  { lat: 40.1160, lng: -8.5010 }, // rua joao mendes
+  { lat: 40.1100, lng: -8.4935 }, // pingo doce
+  { lat: 40.1142, lng: -8.4988 }, // correios
+  { lat: 40.1170, lng: -8.5020 }, // parque municipal
+  { lat: 40.1080, lng: -8.4910 }, // zona industrial
+  { lat: 40.0980, lng: -8.4920 }, // conimbriga
 ];
 
 const categorias = ['encanador','eletricista','pintor','veterinario','carpinteiro','jardineiro','limpeza','serralheiro'];
 
-const nomesPorCategoria = {
+const nomes = {
   encanador: ['José Felipe','Manuel Rodrigues','António Ferreira','Paulo Soares','Fernando Dias','Carlos Pereira','Rui Almeida','Nuno Costa','Pedro Martins','Tiago Ribeiro','Hugo Silva','André Oliveira'],
   eletricista: ['Bruno Silva','Ricardo Santos','João Carvalho','Luís Gonçalves','Sérgio Lopes','Marco Pinto','David Mendes','Filipe Rocha','Vítor Moreira','Daniel Correia','Miguel Teixeira','Hélder Nunes'],
   pintor: ['Francisco Marques','Alberto Monteiro','Joaquim Sousa','Jorge Figueiredo','Artur Gomes','Henrique Barbosa','Raul Cardoso','Alfredo Lima','Domingos Cunha','Tomás Vieira','Gaspar Ramos','Sebastião Coelho'],
@@ -47,53 +33,53 @@ const nomesPorCategoria = {
   serralheiro: ['Agostinho Couto','Baltazar Lemos','Clemente Serra','Demétrio Morato','Eugénio Resende','Feliciano Andrade','Guilherme Bento','Humberto Paiva','Isaías Cruz','Januário Teles','Leandro Sá','Narciso Viana'],
 };
 
-const descricoesPorCategoria = {
-  encanador: ['Reparação de canos e torneiras. Mais de 15 anos de experiência.','Desentupimentos e instalação de canalização. Trabalho rápido e limpo.','Especialista em fugas de água e reparação de esquentadores.','Serviço de canalização ao domicílio. Orçamento gratuito.','Instalação de casas de banho completas. Preços acessíveis.','Manutenção de sistemas de água. Disponível ao fim de semana.','Reparações urgentes de canalização. Atendimento em menos de 1 hora.','Canalização residencial e comercial. Trabalho garantido.','Especialista em aquecimento central e caldeiras.','Desentupimentos com equipamento profissional. 24 horas.','Instalação de torneiras, autoclismos e chuveiros.','Reparação de canalizações antigas. Experiência com casas centenárias.'],
-  eletricista: ['Instalações elétricas residenciais. Certificado pela DGEG.','Reparação de quadros elétricos e curto-circuitos.','Instalação de iluminação LED. Poupança garantida.','Electricidade doméstica e industrial. 20 anos de experiência.','Manutenção de instalações elétricas. Inspeções periódicas.','Instalação de tomadas, interruptores e disjuntores.','Reparações elétricas urgentes. Disponível 7 dias por semana.','Projeto e instalação elétrica para novas construções.','Diagnóstico de problemas elétricos com equipamento moderno.','Instalação de painéis solares e sistemas fotovoltaicos.','Certificação de instalações elétricas para seguros.','Reparação de avarias elétricas. Atendimento rápido.'],
-  pintor: ['Pintura de interiores e exteriores. Acabamento perfeito.','Pintura decorativa e efeitos especiais em paredes.','Pinturas de casas e apartamentos. Preço por m².','Restauro e pintura de fachadas. Trabalho em altura.','Pintura de tetos, paredes e madeiras. Materiais incluídos.','Especialista em pintura com tintas ecológicas.','Pintura residencial e comercial. Orçamento sem compromisso.','Restauro de móveis e pintura com verniz.','Pintura anti-humidade e impermeabilização.','Trabalhos de pintura rápidos e limpos. Flexibilidade horária.','Pintura de garagens, armazéns e espaços comerciais.','Especialista em pintura de apartamentos para arrendamento.'],
-  veterinario: ['Consultas ao domicílio para cães e gatos. Vacinação incluída.','Clínica veterinária com cirurgia e internamento.','Especialista em animais exóticos e aves.','Veterinário de animais de companhia. Urgências 24h.','Desparasitação, vacinação e microchip. Preços económicos.','Consultas veterinárias ao domicílio. Atendimento carinhoso.','Cirurgia veterinária e esterilização. Pós-operatório acompanhado.','Medicina preventiva para animais. Check-ups anuais.','Tratamento de doenças de pele em animais.','Odontologia veterinária. Limpeza dentária para cães e gatos.','Fisioterapia e reabilitação animal.','Nutrição e aconselhamento alimentar para animais.'],
-  carpinteiro: ['Fabrico e reparação de móveis em madeira maciça.','Portas, janelas e caixilharia em madeira. Medida exata.','Montagem de cozinhas e roupeiros. Trabalho personalizado.','Restauro de móveis antigos. Tratamento contra caruncho.','Carpintaria geral e pequenas reparações domésticas.','Construção de decks e pergolados em madeira tratada.','Armários embutidos e estantes por medida.','Reparação de soalhos e rodapés em madeira.','Carpintaria artesanal. Peças únicas e personalizadas.','Montagem de móveis IKEA e similares.','Portas interiores e exteriores. Instalação completa.','Trabalhos em madeira para exteriores. Tratamento autoclave.'],
-  jardineiro: ['Manutenção de jardins e espaços verdes. Corte de relva.','Poda de árvores e arbustos. Equipamento profissional.','Projeto e construção de jardins. Sistemas de rega.','Limpeza de terrenos e quintais. Remoção de entulho verde.','Plantação de flores, árvores e sebes. Aconselhamento incluído.','Manutenção mensal de jardins residenciais.','Corte de árvores perigosas. Trabalho em altura com segurança.','Instalação de relva natural e artificial.','Tratamento fitossanitário de plantas e árvores.','Rega automática. Instalação e manutenção de sistemas.','Jardinagem ecológica e hortas urbanas.','Limpeza sazonal de jardins. Primavera e outono.'],
-  limpeza: ['Limpeza doméstica regular e pontual. Pessoa de confiança.','Limpeza de escritórios e espaços comerciais.','Limpeza pós-obra. Remoção de pó e resíduos de construção.','Engomadoria e tratamento de roupa ao domicílio.','Limpeza profunda de casas. Inclui vidros e persianas.','Serviço de limpeza semanal ou quinzenal.','Limpeza de apartamentos para arrendamento turístico.','Limpeza e desinfeção de espaços. Produtos ecológicos.','Limpeza de garagens e arrecadações. Organização incluída.','Serviço de limpeza para mudanças. Entrada e saída.','Limpeza de estofos, tapetes e cortinados.','Apoio doméstico para idosos. Limpeza e compras.'],
-  serralheiro: ['Portões, gradeamentos e vedações em ferro e alumínio.','Reparação de fechaduras e portas blindadas.','Serralharia civil e artística. Trabalhos por medida.','Escadas metálicas e corrimãos. Instalação completa.','Reparação de estores e persianas metálicas.','Estruturas metálicas para construção. Soldadura MIG/TIG.','Portas de garagem automáticas. Instalação e reparação.','Grades de segurança para janelas e varandas.','Mobiliário metálico por medida. Design moderno.','Reparação de portões automáticos e motores.','Serralharia de alumínio. Janelas e portas de correr.','Trabalhos urgentes de serralharia. Abertura de portas.'],
+const descricoes = {
+  encanador: ['Reparação de canos e torneiras. Mais de 15 anos de experiência.','Desentupimentos e instalação de canalização.','Especialista em fugas de água e esquentadores.','Canalização ao domicílio. Orçamento gratuito.','Instalação de casas de banho. Preços acessíveis.','Manutenção de sistemas de água.','Reparações urgentes de canalização.','Canalização residencial e comercial.','Especialista em aquecimento central.','Desentupimentos profissionais. 24 horas.','Instalação de torneiras e autoclismos.','Reparação de canalizações antigas.'],
+  eletricista: ['Instalações elétricas residenciais. Certificado DGEG.','Reparação de quadros elétricos.','Instalação de iluminação LED.','Eletricidade doméstica e industrial. 20 anos exp.','Manutenção de instalações elétricas.','Instalação de tomadas e interruptores.','Reparações elétricas urgentes. 7 dias/semana.','Projeto elétrico para novas construções.','Diagnóstico com equipamento moderno.','Instalação de painéis solares.','Certificação elétrica para seguros.','Reparação de avarias elétricas.'],
+  pintor: ['Pintura de interiores e exteriores.','Pintura decorativa e efeitos especiais.','Pinturas de casas. Preço por m².','Restauro e pintura de fachadas.','Pintura de tetos e paredes. Materiais incluídos.','Pintura com tintas ecológicas.','Pintura residencial. Orçamento sem compromisso.','Restauro de móveis e verniz.','Pintura anti-humidade.','Trabalhos rápidos e limpos.','Pintura de garagens e armazéns.','Pintura para apartamentos de arrendamento.'],
+  veterinario: ['Consultas ao domicílio. Vacinação incluída.','Clínica com cirurgia e internamento.','Especialista em animais exóticos.','Urgências veterinárias 24h.','Desparasitação, vacinação e microchip.','Consultas ao domicílio. Atendimento carinhoso.','Cirurgia e esterilização animal.','Medicina preventiva. Check-ups anuais.','Tratamento de doenças de pele.','Limpeza dentária para cães e gatos.','Fisioterapia e reabilitação animal.','Nutrição e aconselhamento alimentar.'],
+  carpinteiro: ['Fabrico e reparação de móveis.','Portas e janelas em madeira por medida.','Montagem de cozinhas e roupeiros.','Restauro de móveis antigos.','Carpintaria geral e reparações.','Decks e pergolados em madeira.','Armários embutidos por medida.','Reparação de soalhos e rodapés.','Carpintaria artesanal.','Montagem de móveis IKEA.','Portas interiores e exteriores.','Trabalhos em madeira para exteriores.'],
+  jardineiro: ['Manutenção de jardins. Corte de relva.','Poda de árvores e arbustos.','Projeto e construção de jardins.','Limpeza de terrenos e quintais.','Plantação de flores e sebes.','Manutenção mensal de jardins.','Corte de árvores perigosas.','Relva natural e artificial.','Tratamento fitossanitário.','Rega automática. Instalação e manutenção.','Jardinagem ecológica e hortas.','Limpeza sazonal de jardins.'],
+  limpeza: ['Limpeza doméstica regular e pontual.','Limpeza de escritórios.','Limpeza pós-obra.','Engomadoria ao domicílio.','Limpeza profunda. Vidros e persianas.','Limpeza semanal ou quinzenal.','Limpeza para arrendamento turístico.','Limpeza e desinfeção ecológica.','Limpeza de garagens.','Limpeza para mudanças.','Limpeza de estofos e tapetes.','Apoio doméstico para idosos.'],
+  serralheiro: ['Portões e gradeamentos em ferro.','Reparação de fechaduras.','Serralharia civil e artística.','Escadas metálicas e corrimãos.','Reparação de estores metálicos.','Estruturas metálicas. Soldadura MIG/TIG.','Portas de garagem automáticas.','Grades de segurança para janelas.','Mobiliário metálico por medida.','Reparação de portões automáticos.','Serralharia de alumínio.','Abertura de portas urgente.'],
 };
 
-function gerarTelefone(i) {
-  const p = ['91','92','93','96'];
-  return `${p[i%p.length]}${String(1000000+(i*7919)%9000000)}`;
+// gerar telefone ficticio portugues
+function gerarTel(i) {
+  const pref = ['91','92','93','96'];
+  return pref[i % 4] + String(1000000 + (i * 7919) % 9000000);
 }
 
 function gerarAvaliacao(i) {
-  const a = [4.0,4.2,4.5,4.7,4.8,5.0,3.8,4.3,4.6,4.9,3.5,4.1];
-  return a[i%a.length];
+  const vals = [4.0, 4.2, 4.5, 4.7, 4.8, 5.0, 3.8, 4.3, 4.6, 4.9, 3.5, 4.1];
+  return vals[i % vals.length];
 }
 
-// --- Gerar todos os profissionais ---
+// gerar profissionais
 const profissionais = [];
 let id = 1;
 
-locais.forEach((local, iL) => {
-  categorias.forEach((cat, iC) => {
-    const ig = iL * categorias.length + iC;
-    const tel = gerarTelefone(ig);
+for (let iLocal = 0; iLocal < locais.length; iLocal++) {
+  for (let iCat = 0; iCat < categorias.length; iCat++) {
+    const idx = iLocal * categorias.length + iCat;
+    const cat = categorias[iCat];
+    const tel = gerarTel(idx);
+
     profissionais.push({
       id: id++,
-      nome: nomesPorCategoria[cat][iL],
+      nome: nomes[cat][iLocal],
       categoria: cat,
       telefone: tel,
-      whatsapp: `351${tel}`,
-      latitude: local.lat,
-      longitude: local.lng,
-      avaliacao: gerarAvaliacao(ig),
-      descricao: descricoesPorCategoria[cat][iL],
+      whatsapp: '351' + tel,
+      latitude: locais[iLocal].lat,
+      longitude: locais[iLocal].lng,
+      avaliacao: gerarAvaliacao(idx),
+      descricao: descricoes[cat][iLocal]
     });
-  });
-});
+  }
+}
 
-// --- Guardar ---
-fs.writeFileSync(DB_PATH, JSON.stringify({ profissionais }, null, 2), 'utf-8');
-
-console.log(`\n🎉 ${profissionais.length} profissionais criados!`);
-console.log(`📍 ${locais.length} localizações × ${categorias.length} categorias`);
-console.log('\n✅ Ficheiro guardado:', DB_PATH);
-console.log('👉 Agora inicia o servidor com: node server.js\n');
+// guardar
+const ficheiro = path.join(__dirname, 'dados.json');
+fs.writeFileSync(ficheiro, JSON.stringify({ profissionais }, null, 2));
+console.log(profissionais.length + ' profissionais criados em ' + ficheiro);

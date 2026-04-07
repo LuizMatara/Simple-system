@@ -20,7 +20,7 @@
       "latitude": 40.1138,
       "longitude": -8.4981,
       "avaliacao": 4.2,
-      "descricao": "Instalações elétricas residenciais. Certificado pela DGEG."
+      "descricao": "Instalações elétricas residenciais. Certificado DGEG."
     },
     {
       "id": 3,
@@ -31,7 +31,7 @@
       "latitude": 40.1138,
       "longitude": -8.4981,
       "avaliacao": 4.5,
-      "descricao": "Pintura de interiores e exteriores. Acabamento perfeito."
+      "descricao": "Pintura de interiores e exteriores."
     },
     {
       "id": 4,
@@ -42,7 +42,7 @@
       "latitude": 40.1138,
       "longitude": -8.4981,
       "avaliacao": 4.7,
-      "descricao": "Consultas ao domicílio para cães e gatos. Vacinação incluída."
+      "descricao": "Consultas ao domicílio. Vacinação incluída."
     },
     {
       "id": 5,
@@ -53,7 +53,7 @@
       "latitude": 40.1138,
       "longitude": -8.4981,
       "avaliacao": 4.8,
-      "descricao": "Fabrico e reparação de móveis em madeira maciça."
+      "descricao": "Fabrico e reparação de móveis."
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@
       "latitude": 40.1138,
       "longitude": -8.4981,
       "avaliacao": 5,
-      "descricao": "Manutenção de jardins e espaços verdes. Corte de relva."
+      "descricao": "Manutenção de jardins. Corte de relva."
     },
     {
       "id": 7,
@@ -75,7 +75,7 @@
       "latitude": 40.1138,
       "longitude": -8.4981,
       "avaliacao": 3.8,
-      "descricao": "Limpeza doméstica regular e pontual. Pessoa de confiança."
+      "descricao": "Limpeza doméstica regular e pontual."
     },
     {
       "id": 8,
@@ -86,7 +86,7 @@
       "latitude": 40.1138,
       "longitude": -8.4981,
       "avaliacao": 4.3,
-      "descricao": "Portões, gradeamentos e vedações em ferro e alumínio."
+      "descricao": "Portões e gradeamentos em ferro."
     },
     {
       "id": 9,
@@ -97,7 +97,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 4.6,
-      "descricao": "Desentupimentos e instalação de canalização. Trabalho rápido e limpo."
+      "descricao": "Desentupimentos e instalação de canalização."
     },
     {
       "id": 10,
@@ -108,7 +108,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 4.9,
-      "descricao": "Reparação de quadros elétricos e curto-circuitos."
+      "descricao": "Reparação de quadros elétricos."
     },
     {
       "id": 11,
@@ -119,7 +119,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 3.5,
-      "descricao": "Pintura decorativa e efeitos especiais em paredes."
+      "descricao": "Pintura decorativa e efeitos especiais."
     },
     {
       "id": 12,
@@ -130,7 +130,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 4.1,
-      "descricao": "Clínica veterinária com cirurgia e internamento."
+      "descricao": "Clínica com cirurgia e internamento."
     },
     {
       "id": 13,
@@ -141,7 +141,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 4,
-      "descricao": "Portas, janelas e caixilharia em madeira. Medida exata."
+      "descricao": "Portas e janelas em madeira por medida."
     },
     {
       "id": 14,
@@ -152,7 +152,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 4.2,
-      "descricao": "Poda de árvores e arbustos. Equipamento profissional."
+      "descricao": "Poda de árvores e arbustos."
     },
     {
       "id": 15,
@@ -163,7 +163,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 4.5,
-      "descricao": "Limpeza de escritórios e espaços comerciais."
+      "descricao": "Limpeza de escritórios."
     },
     {
       "id": 16,
@@ -174,7 +174,7 @@
       "latitude": 40.1125,
       "longitude": -8.4965,
       "avaliacao": 4.7,
-      "descricao": "Reparação de fechaduras e portas blindadas."
+      "descricao": "Reparação de fechaduras."
     },
     {
       "id": 17,
@@ -185,7 +185,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 4.8,
-      "descricao": "Especialista em fugas de água e reparação de esquentadores."
+      "descricao": "Especialista em fugas de água e esquentadores."
     },
     {
       "id": 18,
@@ -196,7 +196,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 5,
-      "descricao": "Instalação de iluminação LED. Poupança garantida."
+      "descricao": "Instalação de iluminação LED."
     },
     {
       "id": 19,
@@ -207,7 +207,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 3.8,
-      "descricao": "Pinturas de casas e apartamentos. Preço por m²."
+      "descricao": "Pinturas de casas. Preço por m²."
     },
     {
       "id": 20,
@@ -218,7 +218,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 4.3,
-      "descricao": "Especialista em animais exóticos e aves."
+      "descricao": "Especialista em animais exóticos."
     },
     {
       "id": 21,
@@ -229,7 +229,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 4.6,
-      "descricao": "Montagem de cozinhas e roupeiros. Trabalho personalizado."
+      "descricao": "Montagem de cozinhas e roupeiros."
     },
     {
       "id": 22,
@@ -240,7 +240,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 4.9,
-      "descricao": "Projeto e construção de jardins. Sistemas de rega."
+      "descricao": "Projeto e construção de jardins."
     },
     {
       "id": 23,
@@ -251,7 +251,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 3.5,
-      "descricao": "Limpeza pós-obra. Remoção de pó e resíduos de construção."
+      "descricao": "Limpeza pós-obra."
     },
     {
       "id": 24,
@@ -262,7 +262,7 @@
       "latitude": 40.115,
       "longitude": -8.5002,
       "avaliacao": 4.1,
-      "descricao": "Serralharia civil e artística. Trabalhos por medida."
+      "descricao": "Serralharia civil e artística."
     },
     {
       "id": 25,
@@ -273,7 +273,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 4,
-      "descricao": "Serviço de canalização ao domicílio. Orçamento gratuito."
+      "descricao": "Canalização ao domicílio. Orçamento gratuito."
     },
     {
       "id": 26,
@@ -284,7 +284,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 4.2,
-      "descricao": "Electricidade doméstica e industrial. 20 anos de experiência."
+      "descricao": "Eletricidade doméstica e industrial. 20 anos exp."
     },
     {
       "id": 27,
@@ -295,7 +295,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 4.5,
-      "descricao": "Restauro e pintura de fachadas. Trabalho em altura."
+      "descricao": "Restauro e pintura de fachadas."
     },
     {
       "id": 28,
@@ -306,7 +306,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 4.7,
-      "descricao": "Veterinário de animais de companhia. Urgências 24h."
+      "descricao": "Urgências veterinárias 24h."
     },
     {
       "id": 29,
@@ -317,7 +317,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 4.8,
-      "descricao": "Restauro de móveis antigos. Tratamento contra caruncho."
+      "descricao": "Restauro de móveis antigos."
     },
     {
       "id": 30,
@@ -328,7 +328,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 5,
-      "descricao": "Limpeza de terrenos e quintais. Remoção de entulho verde."
+      "descricao": "Limpeza de terrenos e quintais."
     },
     {
       "id": 31,
@@ -339,7 +339,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 3.8,
-      "descricao": "Engomadoria e tratamento de roupa ao domicílio."
+      "descricao": "Engomadoria ao domicílio."
     },
     {
       "id": 32,
@@ -350,7 +350,7 @@
       "latitude": 40.1132,
       "longitude": -8.4975,
       "avaliacao": 4.3,
-      "descricao": "Escadas metálicas e corrimãos. Instalação completa."
+      "descricao": "Escadas metálicas e corrimãos."
     },
     {
       "id": 33,
@@ -361,7 +361,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 4.6,
-      "descricao": "Instalação de casas de banho completas. Preços acessíveis."
+      "descricao": "Instalação de casas de banho. Preços acessíveis."
     },
     {
       "id": 34,
@@ -372,7 +372,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 4.9,
-      "descricao": "Manutenção de instalações elétricas. Inspeções periódicas."
+      "descricao": "Manutenção de instalações elétricas."
     },
     {
       "id": 35,
@@ -383,7 +383,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 3.5,
-      "descricao": "Pintura de tetos, paredes e madeiras. Materiais incluídos."
+      "descricao": "Pintura de tetos e paredes. Materiais incluídos."
     },
     {
       "id": 36,
@@ -394,7 +394,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 4.1,
-      "descricao": "Desparasitação, vacinação e microchip. Preços económicos."
+      "descricao": "Desparasitação, vacinação e microchip."
     },
     {
       "id": 37,
@@ -405,7 +405,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 4,
-      "descricao": "Carpintaria geral e pequenas reparações domésticas."
+      "descricao": "Carpintaria geral e reparações."
     },
     {
       "id": 38,
@@ -416,7 +416,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 4.2,
-      "descricao": "Plantação de flores, árvores e sebes. Aconselhamento incluído."
+      "descricao": "Plantação de flores e sebes."
     },
     {
       "id": 39,
@@ -427,7 +427,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 4.5,
-      "descricao": "Limpeza profunda de casas. Inclui vidros e persianas."
+      "descricao": "Limpeza profunda. Vidros e persianas."
     },
     {
       "id": 40,
@@ -438,7 +438,7 @@
       "latitude": 40.1145,
       "longitude": -8.499,
       "avaliacao": 4.7,
-      "descricao": "Reparação de estores e persianas metálicas."
+      "descricao": "Reparação de estores metálicos."
     },
     {
       "id": 41,
@@ -449,7 +449,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 4.8,
-      "descricao": "Manutenção de sistemas de água. Disponível ao fim de semana."
+      "descricao": "Manutenção de sistemas de água."
     },
     {
       "id": 42,
@@ -460,7 +460,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 5,
-      "descricao": "Instalação de tomadas, interruptores e disjuntores."
+      "descricao": "Instalação de tomadas e interruptores."
     },
     {
       "id": 43,
@@ -471,7 +471,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 3.8,
-      "descricao": "Especialista em pintura com tintas ecológicas."
+      "descricao": "Pintura com tintas ecológicas."
     },
     {
       "id": 44,
@@ -482,7 +482,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 4.3,
-      "descricao": "Consultas veterinárias ao domicílio. Atendimento carinhoso."
+      "descricao": "Consultas ao domicílio. Atendimento carinhoso."
     },
     {
       "id": 45,
@@ -493,7 +493,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 4.6,
-      "descricao": "Construção de decks e pergolados em madeira tratada."
+      "descricao": "Decks e pergolados em madeira."
     },
     {
       "id": 46,
@@ -504,7 +504,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 4.9,
-      "descricao": "Manutenção mensal de jardins residenciais."
+      "descricao": "Manutenção mensal de jardins."
     },
     {
       "id": 47,
@@ -515,7 +515,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 3.5,
-      "descricao": "Serviço de limpeza semanal ou quinzenal."
+      "descricao": "Limpeza semanal ou quinzenal."
     },
     {
       "id": 48,
@@ -526,7 +526,7 @@
       "latitude": 40.1118,
       "longitude": -8.495,
       "avaliacao": 4.1,
-      "descricao": "Estruturas metálicas para construção. Soldadura MIG/TIG."
+      "descricao": "Estruturas metálicas. Soldadura MIG/TIG."
     },
     {
       "id": 49,
@@ -537,7 +537,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 4,
-      "descricao": "Reparações urgentes de canalização. Atendimento em menos de 1 hora."
+      "descricao": "Reparações urgentes de canalização."
     },
     {
       "id": 50,
@@ -548,7 +548,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 4.2,
-      "descricao": "Reparações elétricas urgentes. Disponível 7 dias por semana."
+      "descricao": "Reparações elétricas urgentes. 7 dias/semana."
     },
     {
       "id": 51,
@@ -559,7 +559,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 4.5,
-      "descricao": "Pintura residencial e comercial. Orçamento sem compromisso."
+      "descricao": "Pintura residencial. Orçamento sem compromisso."
     },
     {
       "id": 52,
@@ -570,7 +570,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 4.7,
-      "descricao": "Cirurgia veterinária e esterilização. Pós-operatório acompanhado."
+      "descricao": "Cirurgia e esterilização animal."
     },
     {
       "id": 53,
@@ -581,7 +581,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 4.8,
-      "descricao": "Armários embutidos e estantes por medida."
+      "descricao": "Armários embutidos por medida."
     },
     {
       "id": 54,
@@ -592,7 +592,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 5,
-      "descricao": "Corte de árvores perigosas. Trabalho em altura com segurança."
+      "descricao": "Corte de árvores perigosas."
     },
     {
       "id": 55,
@@ -603,7 +603,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 3.8,
-      "descricao": "Limpeza de apartamentos para arrendamento turístico."
+      "descricao": "Limpeza para arrendamento turístico."
     },
     {
       "id": 56,
@@ -614,7 +614,7 @@
       "latitude": 40.116,
       "longitude": -8.501,
       "avaliacao": 4.3,
-      "descricao": "Portas de garagem automáticas. Instalação e reparação."
+      "descricao": "Portas de garagem automáticas."
     },
     {
       "id": 57,
@@ -625,7 +625,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 4.6,
-      "descricao": "Canalização residencial e comercial. Trabalho garantido."
+      "descricao": "Canalização residencial e comercial."
     },
     {
       "id": 58,
@@ -636,7 +636,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 4.9,
-      "descricao": "Projeto e instalação elétrica para novas construções."
+      "descricao": "Projeto elétrico para novas construções."
     },
     {
       "id": 59,
@@ -647,7 +647,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 3.5,
-      "descricao": "Restauro de móveis e pintura com verniz."
+      "descricao": "Restauro de móveis e verniz."
     },
     {
       "id": 60,
@@ -658,7 +658,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 4.1,
-      "descricao": "Medicina preventiva para animais. Check-ups anuais."
+      "descricao": "Medicina preventiva. Check-ups anuais."
     },
     {
       "id": 61,
@@ -669,7 +669,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 4,
-      "descricao": "Reparação de soalhos e rodapés em madeira."
+      "descricao": "Reparação de soalhos e rodapés."
     },
     {
       "id": 62,
@@ -680,7 +680,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 4.2,
-      "descricao": "Instalação de relva natural e artificial."
+      "descricao": "Relva natural e artificial."
     },
     {
       "id": 63,
@@ -691,7 +691,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 4.5,
-      "descricao": "Limpeza e desinfeção de espaços. Produtos ecológicos."
+      "descricao": "Limpeza e desinfeção ecológica."
     },
     {
       "id": 64,
@@ -702,7 +702,7 @@
       "latitude": 40.11,
       "longitude": -8.4935,
       "avaliacao": 4.7,
-      "descricao": "Grades de segurança para janelas e varandas."
+      "descricao": "Grades de segurança para janelas."
     },
     {
       "id": 65,
@@ -713,7 +713,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 4.8,
-      "descricao": "Especialista em aquecimento central e caldeiras."
+      "descricao": "Especialista em aquecimento central."
     },
     {
       "id": 66,
@@ -724,7 +724,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 5,
-      "descricao": "Diagnóstico de problemas elétricos com equipamento moderno."
+      "descricao": "Diagnóstico com equipamento moderno."
     },
     {
       "id": 67,
@@ -735,7 +735,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 3.8,
-      "descricao": "Pintura anti-humidade e impermeabilização."
+      "descricao": "Pintura anti-humidade."
     },
     {
       "id": 68,
@@ -746,7 +746,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 4.3,
-      "descricao": "Tratamento de doenças de pele em animais."
+      "descricao": "Tratamento de doenças de pele."
     },
     {
       "id": 69,
@@ -757,7 +757,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 4.6,
-      "descricao": "Carpintaria artesanal. Peças únicas e personalizadas."
+      "descricao": "Carpintaria artesanal."
     },
     {
       "id": 70,
@@ -768,7 +768,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 4.9,
-      "descricao": "Tratamento fitossanitário de plantas e árvores."
+      "descricao": "Tratamento fitossanitário."
     },
     {
       "id": 71,
@@ -779,7 +779,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 3.5,
-      "descricao": "Limpeza de garagens e arrecadações. Organização incluída."
+      "descricao": "Limpeza de garagens."
     },
     {
       "id": 72,
@@ -790,7 +790,7 @@
       "latitude": 40.1142,
       "longitude": -8.4988,
       "avaliacao": 4.1,
-      "descricao": "Mobiliário metálico por medida. Design moderno."
+      "descricao": "Mobiliário metálico por medida."
     },
     {
       "id": 73,
@@ -801,7 +801,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 4,
-      "descricao": "Desentupimentos com equipamento profissional. 24 horas."
+      "descricao": "Desentupimentos profissionais. 24 horas."
     },
     {
       "id": 74,
@@ -812,7 +812,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 4.2,
-      "descricao": "Instalação de painéis solares e sistemas fotovoltaicos."
+      "descricao": "Instalação de painéis solares."
     },
     {
       "id": 75,
@@ -823,7 +823,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 4.5,
-      "descricao": "Trabalhos de pintura rápidos e limpos. Flexibilidade horária."
+      "descricao": "Trabalhos rápidos e limpos."
     },
     {
       "id": 76,
@@ -834,7 +834,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 4.7,
-      "descricao": "Odontologia veterinária. Limpeza dentária para cães e gatos."
+      "descricao": "Limpeza dentária para cães e gatos."
     },
     {
       "id": 77,
@@ -845,7 +845,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 4.8,
-      "descricao": "Montagem de móveis IKEA e similares."
+      "descricao": "Montagem de móveis IKEA."
     },
     {
       "id": 78,
@@ -856,7 +856,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 5,
-      "descricao": "Rega automática. Instalação e manutenção de sistemas."
+      "descricao": "Rega automática. Instalação e manutenção."
     },
     {
       "id": 79,
@@ -867,7 +867,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 3.8,
-      "descricao": "Serviço de limpeza para mudanças. Entrada e saída."
+      "descricao": "Limpeza para mudanças."
     },
     {
       "id": 80,
@@ -878,7 +878,7 @@
       "latitude": 40.117,
       "longitude": -8.502,
       "avaliacao": 4.3,
-      "descricao": "Reparação de portões automáticos e motores."
+      "descricao": "Reparação de portões automáticos."
     },
     {
       "id": 81,
@@ -889,7 +889,7 @@
       "latitude": 40.108,
       "longitude": -8.491,
       "avaliacao": 4.6,
-      "descricao": "Instalação de torneiras, autoclismos e chuveiros."
+      "descricao": "Instalação de torneiras e autoclismos."
     },
     {
       "id": 82,
@@ -900,7 +900,7 @@
       "latitude": 40.108,
       "longitude": -8.491,
       "avaliacao": 4.9,
-      "descricao": "Certificação de instalações elétricas para seguros."
+      "descricao": "Certificação elétrica para seguros."
     },
     {
       "id": 83,
@@ -911,7 +911,7 @@
       "latitude": 40.108,
       "longitude": -8.491,
       "avaliacao": 3.5,
-      "descricao": "Pintura de garagens, armazéns e espaços comerciais."
+      "descricao": "Pintura de garagens e armazéns."
     },
     {
       "id": 84,
@@ -933,7 +933,7 @@
       "latitude": 40.108,
       "longitude": -8.491,
       "avaliacao": 4,
-      "descricao": "Portas interiores e exteriores. Instalação completa."
+      "descricao": "Portas interiores e exteriores."
     },
     {
       "id": 86,
@@ -944,7 +944,7 @@
       "latitude": 40.108,
       "longitude": -8.491,
       "avaliacao": 4.2,
-      "descricao": "Jardinagem ecológica e hortas urbanas."
+      "descricao": "Jardinagem ecológica e hortas."
     },
     {
       "id": 87,
@@ -955,7 +955,7 @@
       "latitude": 40.108,
       "longitude": -8.491,
       "avaliacao": 4.5,
-      "descricao": "Limpeza de estofos, tapetes e cortinados."
+      "descricao": "Limpeza de estofos e tapetes."
     },
     {
       "id": 88,
@@ -966,7 +966,7 @@
       "latitude": 40.108,
       "longitude": -8.491,
       "avaliacao": 4.7,
-      "descricao": "Serralharia de alumínio. Janelas e portas de correr."
+      "descricao": "Serralharia de alumínio."
     },
     {
       "id": 89,
@@ -977,7 +977,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 4.8,
-      "descricao": "Reparação de canalizações antigas. Experiência com casas centenárias."
+      "descricao": "Reparação de canalizações antigas."
     },
     {
       "id": 90,
@@ -988,7 +988,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 5,
-      "descricao": "Reparação de avarias elétricas. Atendimento rápido."
+      "descricao": "Reparação de avarias elétricas."
     },
     {
       "id": 91,
@@ -999,7 +999,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 3.8,
-      "descricao": "Especialista em pintura de apartamentos para arrendamento."
+      "descricao": "Pintura para apartamentos de arrendamento."
     },
     {
       "id": 92,
@@ -1010,7 +1010,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 4.3,
-      "descricao": "Nutrição e aconselhamento alimentar para animais."
+      "descricao": "Nutrição e aconselhamento alimentar."
     },
     {
       "id": 93,
@@ -1021,7 +1021,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 4.6,
-      "descricao": "Trabalhos em madeira para exteriores. Tratamento autoclave."
+      "descricao": "Trabalhos em madeira para exteriores."
     },
     {
       "id": 94,
@@ -1032,7 +1032,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 4.9,
-      "descricao": "Limpeza sazonal de jardins. Primavera e outono."
+      "descricao": "Limpeza sazonal de jardins."
     },
     {
       "id": 95,
@@ -1043,7 +1043,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 3.5,
-      "descricao": "Apoio doméstico para idosos. Limpeza e compras."
+      "descricao": "Apoio doméstico para idosos."
     },
     {
       "id": 96,
@@ -1054,7 +1054,7 @@
       "latitude": 40.098,
       "longitude": -8.492,
       "avaliacao": 4.1,
-      "descricao": "Trabalhos urgentes de serralharia. Abertura de portas."
+      "descricao": "Abertura de portas urgente."
     }
   ]
 }
