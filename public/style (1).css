@@ -1,0 +1,537 @@
+/**
+ * ============================================
+ * Simple System - Estilos
+ * ============================================
+ * 
+ * Design pensado para idosos e pessoas com
+ * pouca experiência em tecnologia:
+ *   - Fontes grandes e legíveis
+ *   - Cores com bom contraste
+ *   - Botões grandes e fáceis de tocar
+ *   - Layout simples e espaçado
+ */
+
+/* --- Variáveis globais --- */
+:root {
+  --cor-primaria: #1a5f7a;
+  --cor-primaria-clara: #e8f4f8;
+  --cor-primaria-escura: #0d3d52;
+  --cor-secundaria: #f39c12;
+  --cor-secundaria-clara: #fff8e8;
+  --cor-sucesso: #27ae60;
+  --cor-erro: #e74c3c;
+  --cor-texto: #2c3e50;
+  --cor-texto-claro: #5a6b7d;
+  --cor-fundo: #f5f7fa;
+  --cor-cartao: #ffffff;
+  --cor-borda: #e1e8ed;
+  --sombra-suave: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --sombra-media: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --raio-borda: 16px;
+  --raio-botao: 12px;
+  --transicao: 0.25s ease;
+}
+
+/* --- Reset básico --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Corpo da página --- */
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   CABEÇALHO
+   ============================================ */
+.cabecalho {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  color: white;
+  padding: 28px 20px 32px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(26, 95, 122, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cabecalho::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cabecalho-conteudo {
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.logo-icone {
+  font-size: 36px;
+}
+
+.logo h1 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.subtitulo {
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+/* ============================================
+   CONTEÚDO PRINCIPAL
+   ============================================ */
+.principal {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* --- Secções --- */
+.secao {
+  margin-bottom: 32px;
+  animation: aparecer 0.4s ease forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.secao-titulo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.passo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--cor-primaria);
+  color: white;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.secao-descricao {
+  font-size: 17px;
+  color: var(--cor-texto-claro);
+  margin-bottom: 20px;
+  margin-left: 52px;
+}
+
+/* ============================================
+   GRELHA DE CATEGORIAS
+   ============================================ */
+.grelha-categorias {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.cartao-categoria {
+  background: var(--cor-cartao);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transicao);
+  box-shadow: var(--sombra-suave);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cartao-categoria:hover,
+.cartao-categoria:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: var(--sombra-media);
+  transform: translateY(-2px);
+}
+
+.cartao-categoria:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-suave);
+}
+
+.cartao-categoria.selecionado {
+  border-color: var(--cor-primaria);
+  background: var(--cor-primaria-clara);
+}
+
+.categoria-icone {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.categoria-nome {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  display: block;
+}
+
+/* ============================================
+   BOTÃO DE LOCALIZAÇÃO
+   ============================================ */
+.botao-localizar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 20px 24px;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  background: linear-gradient(135deg, var(--cor-sucesso), #219a52);
+  border: none;
+  border-radius: var(--raio-botao);
+  cursor: pointer;
+  transition: all var(--transicao);
+  box-shadow: 0 4px 14px rgba(39, 174, 96, 0.35);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.botao-localizar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.botao-localizar:active {
+  transform: translateY(0);
+}
+
+.botao-localizar-icone {
+  font-size: 28px;
+}
+
+/* --- Estado de carregamento --- */
+.estado-localizacao {
+  text-align: center;
+  padding: 24px;
+}
+
+.a-carregar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.a-carregar p {
+  font-size: 18px;
+  color: var(--cor-texto-claro);
+  font-weight: 600;
+}
+
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid var(--cor-borda);
+  border-top-color: var(--cor-primaria);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   RESULTADOS
+   ============================================ */
+.info-pesquisa {
+  background: var(--cor-primaria-clara);
+  border-radius: var(--raio-botao);
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: var(--cor-primaria-escura);
+  font-weight: 600;
+}
+
+.lista-resultados {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* --- Cartão de profissional --- */
+.cartao-profissional {
+  background: var(--cor-cartao);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  padding: 20px;
+  box-shadow: var(--sombra-suave);
+  animation: aparecer 0.3s ease forwards;
+}
+
+.profissional-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.profissional-nome {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--cor-texto);
+}
+
+.profissional-avaliacao {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--cor-secundaria-clara);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #b37400;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.profissional-descricao {
+  font-size: 16px;
+  color: var(--cor-texto-claro);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.profissional-distancia {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--cor-primaria);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* --- Botões de contacto --- */
+.botoes-contacto {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.botao-contacto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 16px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  text-decoration: none;
+  border-radius: var(--raio-botao);
+  transition: all var(--transicao);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.botao-telefone {
+  background: var(--cor-primaria);
+  color: white;
+}
+
+.botao-telefone:hover {
+  background: var(--cor-primaria-escura);
+}
+
+.botao-whatsapp {
+  background: #25d366;
+  color: white;
+}
+
+.botao-whatsapp:hover {
+  background: #1da851;
+}
+
+.botao-contacto-icone {
+  font-size: 22px;
+}
+
+/* ============================================
+   BOTÃO VOLTAR
+   ============================================ */
+.botao-voltar {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  color: var(--cor-texto-claro);
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-botao);
+  cursor: pointer;
+  transition: all var(--transicao);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.botao-voltar:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+/* ============================================
+   MENSAGEM DE ERRO
+   ============================================ */
+.mensagem-erro {
+  background: #fdf0ef;
+  border: 2px solid var(--cor-erro);
+  border-radius: var(--raio-borda);
+  padding: 24px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.erro-texto {
+  font-size: 18px;
+  color: var(--cor-erro);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.botao-tentar {
+  padding: 12px 28px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  background: var(--cor-erro);
+  border: none;
+  border-radius: var(--raio-botao);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.botao-tentar:hover {
+  background: #c0392b;
+}
+
+/* ============================================
+   RODAPÉ
+   ============================================ */
+.rodape {
+  text-align: center;
+  padding: 24px 16px 32px;
+  color: var(--cor-texto-claro);
+  font-size: 15px;
+  border-top: 1px solid var(--cor-borda);
+  margin-top: 16px;
+}
+
+.rodape-nota {
+  font-size: 14px;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+/* ============================================
+   UTILITÁRIOS
+   ============================================ */
+.escondido {
+  display: none !important;
+}
+
+/* ============================================
+   RESPONSIVO - ECRÃS PEQUENOS
+   ============================================ */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+
+  .logo h1 {
+    font-size: 26px;
+  }
+
+  .subtitulo {
+    font-size: 16px;
+  }
+
+  .secao-titulo {
+    font-size: 21px;
+  }
+
+  .grelha-categorias {
+    gap: 10px;
+  }
+
+  .cartao-categoria {
+    padding: 16px 12px;
+  }
+
+  .categoria-icone {
+    font-size: 32px;
+  }
+
+  .categoria-nome {
+    font-size: 15px;
+  }
+
+  .profissional-nome {
+    font-size: 19px;
+  }
+
+  .botoes-contacto {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Para ecrãs maiores, 3 colunas na grelha --- */
+@media (min-width: 600px) {
+  .grelha-categorias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
