@@ -1,78 +1,208 @@
+<!-- Pagina principal do Simple System -->
+<!-- Contem: barra de pesquisa, mapa com marcadores, lista de profissionais -->
+<!-- Ao clicar num marcador no mapa abre o perfil do profissional -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple System — Serviços Perto de Si</title>
+  <title>Simple System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Leaflet - biblioteca gratuita para mapas interativos -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header class="cabecalho">
-    <div class="cabecalho-conteudo">
-      <div class="logo">
-        <span class="logo-icone">🔍</span>
-        <h1>Simple System</h1>
-      </div>
-      <p class="subtitulo">Encontre serviços de confiança perto de si</p>
-    </div>
-  </header>
-
-  <main class="principal">
-
-    <!-- escolher categoria -->
-    <section class="secao" id="secao-categorias">
-      <h2 class="secao-titulo">
-        <span class="passo">1</span>
-        Que serviço precisa?
-      </h2>
-      <p class="secao-descricao">Toque no serviço que procura:</p>
-      <div class="grelha-categorias" id="grelha-categorias"></div>
-    </section>
-
-    <!-- localizacao -->
-    <section class="secao escondido" id="secao-localizacao">
-      <h2 class="secao-titulo">
-        <span class="passo">2</span>
-        Onde está?
-      </h2>
-      <p class="secao-descricao">Precisamos da sua localização para mostrar os profissionais mais perto.</p>
-      <button class="botao-localizar" id="botao-localizar">
-        <span class="botao-localizar-icone">📍</span>
-        Usar a minha localização
+  <!-- barra de navegacao responsiva - muda para hamburger no telemovel -->
+  <nav class="navbar navbar-expand-md navbar-dark nav-principal">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-search me-2"></i>Simple System</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="estado-localizacao escondido" id="estado-localizacao">
-        <div class="a-carregar">
-          <div class="spinner"></div>
-          <p>A obter localização...</p>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-1"></i>Home</a></li>
+          <!-- link admin - so visivel para administradores -->
+          <li class="nav-item d-none" id="link-admin"><a class="nav-link text-danger" href="admin.html"><i class="bi bi-gear me-1"></i>Admin</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalSobre"><i class="bi bi-info-circle me-1"></i>Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalAjuda"><i class="bi bi-question-circle me-1"></i>Ajuda</a></li>
+          <!-- nome do utilizador logado -->
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-person-circle me-1"></i><span id="nome-user"></span></a></li>
+          <li class="nav-item"><a class="nav-link text-warning" href="#" id="botao-sair"><i class="bi bi-box-arrow-right me-1"></i>Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+
+    <!-- SECAO HOME - pesquisa e destaques -->
+    <section id="secao-home">
+      <!-- titulo central tipo google -->
+      <div class="texto-central">
+        <div class="logo-grande"><i class="bi bi-search"></i></div>
+        <h2 class="fw-bold mt-3">Simple System</h2>
+        <p class="text-muted">Profissionais de confianca perto de si</p>
+      </div>
+
+      <!-- barra de pesquisa com sugestoes em tempo real -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 col-md-8 col-lg-6 position-relative">
+          <div class="input-group input-group-lg pesquisa-box">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+            <input type="text" class="form-control border-start-0" id="campo-pesquisa" placeholder="Que servico procura?" autocomplete="off">
+          </div>
+          <!-- lista de sugestoes que aparece ao escrever -->
+          <div class="sugestoes-lista d-none" id="sugestoes-lista"></div>
         </div>
       </div>
+
+      <!-- profissionais com melhor avaliacao -->
+      <div class="mt-4">
+        <h6 class="fw-bold text-muted mb-3"><i class="bi bi-star-fill text-warning me-1"></i> Em destaque</h6>
+        <div class="row g-3" id="destaques-lista"></div>
+      </div>
     </section>
 
-    <!-- resultados -->
-    <section class="secao escondido" id="secao-resultados">
-      <h2 class="secao-titulo">
-        <span class="passo">3</span>
-        Profissionais perto de si
-      </h2>
-      <div class="info-pesquisa" id="info-pesquisa"></div>
-      <div class="lista-resultados" id="lista-resultados"></div>
-      <button class="botao-voltar" id="botao-voltar">← Procurar outro serviço</button>
+    <!-- SECAO RESULTADOS - mapa e lista de profissionais -->
+    <section class="d-none" id="secao-resultados">
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <button class="btn btn-outline-secondary btn-sm" id="botao-voltar"><i class="bi bi-arrow-left"></i> Voltar</button>
+        <div class="resultado-info flex-grow-1" id="info-pesquisa"></div>
+      </div>
+
+      <!-- mapa leaflet - mostra INTEP e profissionais -->
+      <div id="mapa" class="mapa-container mb-3 rounded-3 border"></div>
+
+      <!-- lista de cartoes dos profissionais -->
+      <div id="lista-resultados"></div>
     </section>
 
-    <!-- erro -->
-    <div class="mensagem-erro escondido" id="mensagem-erro">
-      <p class="erro-texto" id="erro-texto"></p>
-      <button class="botao-tentar" id="botao-tentar">Tentar novamente</button>
+    <!-- mensagem de erro -->
+    <div class="d-none" id="mensagem-erro">
+      <div class="alert alert-danger text-center">
+        <p id="erro-texto" class="mb-2"></p>
+        <button class="btn btn-danger btn-sm" id="botao-tentar">Tentar novamente</button>
+      </div>
     </div>
-
   </main>
 
-  <footer class="rodape">
-    <p>Simple System © 2026 — Projeto INTEP Condeixa-a-Nova</p>
+  <footer class="text-center text-muted py-3 border-top small">
+    Simple System &copy; 2026 &mdash; INTEP Condeixa-a-Nova
   </footer>
 
+  <!-- MODAL SOBRE - informacao sobre o projeto -->
+  <div class="modal fade" id="modalSobre" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header modal-azul">
+          <h5 class="modal-title"><i class="bi bi-info-circle me-2"></i>Sobre o Simple System</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <h6 class="fw-bold text-dark">O que e</h6>
+              <p>O Simple System e uma plataforma que permite encontrar profissionais de servicos locais em Condeixa-a-Nova e arredores. O objetivo e centralizar numa unica ferramenta todos os servicos que as pessoas precisam no dia a dia, desde canalizacao a reparacao de computadores.</p>
+
+              <h6 class="fw-bold text-dark">Para quem</h6>
+              <p>O site foi pensado para pessoas com pouca experiencia tecnologica, especialmente a populacao mais idosa, que muitas vezes nao sabe a quem recorrer quando precisa de um servico. A interface e simples de proposito: texto grande, poucos passos, e contacto direto.</p>
+            </div>
+            <div class="col-md-6">
+              <h6 class="fw-bold text-dark">Como funciona</h6>
+              <p>O utilizador pesquisa o servico que precisa. O sistema usa coordenadas GPS para calcular a distancia real ate cada profissional e mostra os resultados ordenados por proximidade. Cada profissional tem um perfil com avaliacao, descricao e contactos diretos.</p>
+
+              <h6 class="fw-bold text-dark">O nosso objetivo</h6>
+              <p class="mb-0">Queremos que encontrar um profissional de confianca seja tao simples como fazer uma pesquisa. Acreditamos que a tecnologia deve servir as pessoas, nao complicar-lhes a vida. O Simple System e a prova de que e possivel criar algo util e acessivel para todos.</p>
+            </div>
+          </div>
+          <hr>
+          <p class="small text-muted mb-0">Projeto desenvolvido no ambito do curso INTEP, Condeixa-a-Nova, 2026.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL AJUDA - como usar o site -->
+  <div class="modal fade" id="modalAjuda" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header modal-verde">
+          <h5 class="modal-title"><i class="bi bi-question-circle me-2"></i>Como usar</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="passo-ajuda"><span class="passo-num">1</span><span>Escreva o servico na barra de pesquisa. As sugestoes aparecem enquanto escreve.</span></div>
+          <div class="passo-ajuda"><span class="passo-num">2</span><span>Clique na sugestao pretendida. Os profissionais mais proximos aparecem no mapa.</span></div>
+          <div class="passo-ajuda"><span class="passo-num">3</span><span>Clique num marcador no mapa para ver o perfil completo do profissional.</span></div>
+          <div class="passo-ajuda"><span class="passo-num">4</span><span>Use os botoes para ligar, enviar WhatsApp, ou deixar uma avaliacao com comentario.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PERFIL - abre ao clicar num profissional (mapa ou lista) -->
+  <div class="modal fade" id="modalPerfil" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header modal-azul">
+          <h5 class="modal-title" id="perfil-nome"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <!-- info do profissional -->
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge-cat" id="perfil-categoria"></span>
+            <span class="perfil-nota" id="perfil-nota"></span>
+          </div>
+          <p class="text-muted small" id="perfil-descricao"></p>
+          <p class="small fw-bold" style="color:var(--azul)" id="perfil-distancia"></p>
+
+          <!-- botoes de contacto -->
+          <div class="row g-2 mb-4">
+            <div class="col-6"><a href="#" class="btn btn-tel w-100" id="perfil-btn-tel"><i class="bi bi-telephone me-1"></i>Ligar</a></div>
+            <div class="col-6"><a href="#" class="btn btn-wpp w-100" target="_blank" id="perfil-btn-wpp"><i class="bi bi-whatsapp me-1"></i>WhatsApp</a></div>
+          </div>
+
+          <hr>
+
+          <!-- secao de avaliacoes -->
+          <h6 class="fw-bold mb-3"><i class="bi bi-chat-left-text me-2"></i>Avaliacoes</h6>
+
+          <!-- formulario para nova avaliacao -->
+          <div class="avaliar-box mb-3">
+            <div class="mb-2">
+              <label class="form-label small fw-bold mb-1">A sua nota:</label>
+              <div class="estrelas-input" id="estrelas-input">
+                <i class="bi bi-star estrela-btn" data-valor="1"></i>
+                <i class="bi bi-star estrela-btn" data-valor="2"></i>
+                <i class="bi bi-star estrela-btn" data-valor="3"></i>
+                <i class="bi bi-star estrela-btn" data-valor="4"></i>
+                <i class="bi bi-star estrela-btn" data-valor="5"></i>
+                <small class="ms-2 text-muted" id="nota-texto"></small>
+              </div>
+            </div>
+            <div class="mb-2">
+              <textarea class="form-control form-control-sm" id="perfil-comentario" rows="2" placeholder="Escreva um comentario..."></textarea>
+            </div>
+            <button class="btn btn-entrar btn-sm fw-bold" id="botao-enviar-avaliacao">Enviar</button>
+            <div id="avaliar-msg" class="d-none mt-2 small"></div>
+          </div>
+
+          <!-- lista de avaliacoes existentes -->
+          <div id="lista-avaliacoes"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

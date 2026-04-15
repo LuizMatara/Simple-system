@@ -1,3 +1,3 @@
 # Simple System
 
-Motor de pesquisa de serviços locais — Condeixa-a-Nova
+Motor de pesquisa de servicos locais — Condeixa-a-Nova

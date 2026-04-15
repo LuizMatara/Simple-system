@@ -1,0 +1,73 @@
+<!-- Pagina de login do Simple System -->
+<!-- O utilizador tem de fazer login antes de aceder ao site -->
+<!-- Duas contas: admin (gere profissionais) e user (pesquisa servicos) -->
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple System</title>
+  <!-- Bootstrap para o layout e componentes -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons para icones sem emojis -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Fonte Nunito - legivel e moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Os nossos estilos customizados -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pagina-login">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100">
+      <div class="col-11 col-sm-8 col-md-5 col-lg-4">
+
+        <!-- cartao de login centrado na pagina -->
+        <div class="card login-card shadow-lg border-0">
+          <div class="card-body p-4">
+
+            <!-- logo e titulo -->
+            <div class="text-center mb-4">
+              <div class="login-logo"><i class="bi bi-search"></i></div>
+              <h1 class="h3 fw-bold mt-3">Simple System</h1>
+              <p class="text-muted small">Servicos locais de confianca</p>
+            </div>
+
+            <!-- mensagem de erro (escondida por defeito) -->
+            <div id="erro-login" class="alert alert-danger d-none small" role="alert"></div>
+
+            <!-- campo de email -->
+            <div class="mb-3">
+              <label for="input-email" class="form-label fw-bold small">Email</label>
+              <input type="email" class="form-control" id="input-email" placeholder="seu.email@exemplo.com">
+            </div>
+
+            <!-- campo de senha -->
+            <div class="mb-4">
+              <label for="input-senha" class="form-label fw-bold small">Palavra-passe</label>
+              <input type="password" class="form-control" id="input-senha" placeholder="Introduza a sua senha">
+            </div>
+
+            <!-- botao de entrar -->
+            <button class="btn btn-entrar w-100 fw-bold mb-3" id="botao-entrar">Entrar</button>
+
+            <!-- contas de demonstracao - clicaveis para preencher automatico -->
+            <div class="contas-info">
+              <p class="fw-bold mb-2 small text-muted">Contas de demonstracao:</p>
+              <div class="conta-exemplo" onclick="preencherConta('admin@simple.pt','admin123')">
+                <span class="badge bg-danger me-2">Admin</span>
+                <span class="small text-muted">admin@simple.pt / admin123</span>
+              </div>
+              <div class="conta-exemplo" onclick="preencherConta('user@simple.pt','user123')">
+                <span class="badge bg-primary me-2">Utilizador</span>
+                <span class="small text-muted">user@simple.pt / user123</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>
