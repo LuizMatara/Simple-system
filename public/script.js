@@ -40,6 +40,25 @@ var marcadores = [];
 var minhaLat = 40.110355;
 var minhaLng = -8.495044;
 
+// regioes de Portugal com coordenadas reais
+// simula geolocalizacao em tempo real - o utilizador escolhe a regiao
+// mas como os profissionais sao todos de Condeixa, so aparecem resultados em Condeixa
+var regioes = {
+  condeixa: { nome: 'Condeixa-a-Nova', lat: 40.110355, lng: -8.495044 },
+  coimbra:  { nome: 'Coimbra',         lat: 40.2033,   lng: -8.4103 },
+  lisboa:   { nome: 'Lisboa',           lat: 38.7223,   lng: -9.1393 },
+  porto:    { nome: 'Porto',            lat: 41.1579,   lng: -8.6291 },
+  faro:     { nome: 'Faro',             lat: 37.0194,   lng: -7.9304 },
+  braga:    { nome: 'Braga',            lat: 41.5518,   lng: -8.4229 },
+  aveiro:   { nome: 'Aveiro',           lat: 40.6443,   lng: -8.6455 },
+  leiria:   { nome: 'Leiria',           lat: 39.7436,   lng: -8.8071 },
+  viseu:    { nome: 'Viseu',            lat: 40.6610,   lng: -7.9097 },
+  evora:    { nome: 'Evora',            lat: 38.5711,   lng: -7.9093 }
+};
+
+// regiao selecionada atualmente
+var regiaoAtual = 'condeixa';
+
 // nota selecionada no modal de avaliacao (0 a 5)
 var notaSelecionada = 0;
 
@@ -79,6 +98,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // carregar os profissionais em destaque na pagina inicial
   carregarDestaques();
+
+  // SELETOR DE REGIAO: ao mudar a regiao, atualiza coordenadas e destaques
+  var seletorRegiao = document.getElementById('seletor-regiao');
+  if (seletorRegiao) {
+    seletorRegiao.addEventListener('change', function() {
+      regiaoAtual = this.value;
+      var regiao = regioes[regiaoAtual];
+      // atualizar coordenadas de referencia
+      minhaLat = regiao.lat;
+      minhaLng = regiao.lng;
+      // atualizar texto informativo
+      document.getElementById('regiao-info').textContent = 'A mostrar servicos em ' + regiao.nome;
+      // recarregar destaques com novas coordenadas
+      carregarDestaques();
+    });
+  }
 
   // PESQUISA: ao escrever, mostrar sugestoes
   campoPesquisa.addEventListener('input', function() {
@@ -314,20 +349,44 @@ function pesquisar(catId) {
 
 
 // mostrar os resultados da pesquisa
+// primeiro mostra distancia a partir da regiao selecionada
+// depois de 3 segundos o mapa voa para Condeixa (INTEP) onde os profissionais estao
 function mostrarResultados(dados) {
   var profs = dados.profissionais;
-  ultimosProfissionais = profs; // guardar para usar nos modais
+  ultimosProfissionais = profs;
   var catInfo = buscarCategoria(dados.categoria);
+  var regiao = regioes[regiaoAtual];
 
   // esconder home e mostrar resultados
   secaoHome.classList.add('d-none');
   secaoResultados.classList.remove('d-none');
 
-  // info da pesquisa
-  infoPesquisa.innerHTML = '<strong>' + profs.length + '</strong> profissional(is) de <strong><i class="bi ' + catInfo.icone + ' me-1"></i>' + catInfo.nome + '</strong>';
+  // info da pesquisa com a regiao selecionada
+  if (regiaoAtual !== 'condeixa') {
+    infoPesquisa.innerHTML = '<strong>' + profs.length + '</strong> profissional(is) de <strong><i class="bi ' + catInfo.icone + ' me-1"></i>' + catInfo.nome + '</strong> — A localizar a partir de ' + regiao.nome + '...';
+  } else {
+    infoPesquisa.innerHTML = '<strong>' + profs.length + '</strong> profissional(is) de <strong><i class="bi ' + catInfo.icone + ' me-1"></i>' + catInfo.nome + '</strong>';
+  }
 
-  // montar o mapa com marcadores
+  // montar o mapa comecando na regiao selecionada
   montarMapa(profs);
+
+  // se a regiao nao e Condeixa, depois de 3 segundos voar para a INTEP
+  if (regiaoAtual !== 'condeixa') {
+    setTimeout(function() {
+      // coordenadas reais da INTEP
+      var intepLat = 40.110355;
+      var intepLng = -8.495044;
+
+      // voar para a INTEP com animacao suave
+      if (mapa) {
+        mapa.flyTo([intepLat, intepLng], 15, { duration: 2 });
+      }
+
+      // atualizar texto
+      infoPesquisa.innerHTML = '<strong>' + profs.length + '</strong> profissional(is) de <strong><i class="bi ' + catInfo.icone + ' me-1"></i>' + catInfo.nome + '</strong> — Condeixa-a-Nova (INTEP)';
+    }, 3000);
+  }
 
   // criar a lista de cartoes
   var html = '';
@@ -354,27 +413,50 @@ function mostrarResultados(dados) {
 
 
 // montar o mapa leaflet com marcadores
+// comeca centrado na regiao selecionada
+// se nao for Condeixa, mostra zoom mais afastado para ver a distancia
 function montarMapa(profs) {
   // se ja existe mapa, remover
   if (mapa) { mapa.remove(); mapa = null; }
   marcadores = [];
 
-  // criar mapa centrado na INTEP
-  mapa = L.map('mapa').setView([minhaLat, minhaLng], 15);
+  // coordenadas da INTEP (onde os profissionais estao)
+  var intepLat = 40.110355;
+  var intepLng = -8.495044;
+
+  // zoom inicial depende da regiao
+  // se for Condeixa, zoom perto (15)
+  // se for outra regiao, zoom afastado (7) para ver a distancia
+  var zoomInicial = (regiaoAtual === 'condeixa') ? 15 : 7;
+
+  // criar mapa centrado na regiao selecionada
+  mapa = L.map('mapa').setView([minhaLat, minhaLng], zoomInicial);
 
   // tiles do OpenStreetMap (gratuito)
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap'
   }).addTo(mapa);
 
-  // marcador da INTEP (vermelho)
+  // marcador da regiao selecionada (vermelho)
+  var regiao = regioes[regiaoAtual];
   L.marker([minhaLat, minhaLng], {
     icon: L.divIcon({
       className: '',
       html: '<div style="background:#c0392b;color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:14px;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)"><i class="bi bi-geo-alt-fill"></i></div>',
       iconSize: [32,32], iconAnchor: [16,16]
     })
-  }).addTo(mapa).bindPopup('<strong>INTEP Condeixa</strong><br><small>Quinta Nova, Rua de Tomar</small>');
+  }).addTo(mapa).bindPopup('<strong>' + regiao.nome + '</strong><br><small>A sua localizacao</small>');
+
+  // se nao for Condeixa, adicionar marcador da INTEP tambem
+  if (regiaoAtual !== 'condeixa') {
+    L.marker([intepLat, intepLng], {
+      icon: L.divIcon({
+        className: '',
+        html: '<div style="background:#27ae60;color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;border:3px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.3)">SS</div>',
+        iconSize: [32,32], iconAnchor: [16,16]
+      })
+    }).addTo(mapa).bindPopup('<strong>INTEP Condeixa</strong><br><small>Zona dos profissionais</small>');
+  }
 
   // marcadores dos profissionais (azul com numero)
   for (var i = 0; i < profs.length; i++) {
@@ -388,7 +470,6 @@ function montarMapa(profs) {
     }).addTo(mapa);
 
     // ao clicar no marcador, abrir o perfil do profissional
-    // usamos uma closure para manter a referencia ao profissional correto
     (function(prof) {
       m.on('click', function() {
         abrirPerfil(prof);
@@ -398,8 +479,8 @@ function montarMapa(profs) {
     marcadores.push(m);
   }
 
-  // ajustar zoom para mostrar todos os pontos
-  if (profs.length > 0) {
+  // se for Condeixa, ajustar zoom para mostrar todos
+  if (regiaoAtual === 'condeixa' && profs.length > 0) {
     var pts = [[minhaLat, minhaLng]];
     for (var i = 0; i < profs.length; i++) pts.push([profs[i].latitude, profs[i].longitude]);
     mapa.fitBounds(pts, { padding: [30, 30] });

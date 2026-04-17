@@ -113,5 +113,9 @@ body { font-family: 'Nunito', sans-serif; background: #f4f6f9; color: var(--text
 /* navbar do admin */
 .nav-admin { background: #6b1520; }
 
+/* seletor de regiao */
+.regiao-select { border-radius: 8px; border-color: var(--borda); max-width: 220px; font-size: 13px; }
+.regiao-select:focus { border-color: var(--azul); box-shadow: 0 0 0 2px rgba(26,95,122,0.1); }
+
 /* responsivo para telemoveis */
 @media (max-width: 576px) { .mapa-container { height: 240px; } .texto-central { padding: 28px 0 16px; } .logo-grande { width: 52px; height: 52px; font-size: 24px; } }
